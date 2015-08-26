@@ -1,3 +1,6 @@
+v0.0.3
+- Play youtube links
+
 v0.0.2
 - Fixed thumbnail images for current shows
 

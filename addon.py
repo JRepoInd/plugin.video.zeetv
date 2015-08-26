@@ -111,20 +111,14 @@ def episode():
         thumbnail = soup.find('div', {'itemprop': 'video'}).find('meta', {'itemprop': 'thumbnailUrl'})['content']
         h.add_dir_video(addon_handle, name, url, thumbnail, plot)
     else:
-        print div
-        '''
         iframe = div.find('iframe')
         if iframe:
             attrs = dict(iframe.attrs)
             youtube_url = attrs['src']
             video_id = urlparse.urlparse(youtube_url).path.replace('/embed/', '')
-            # trailer_id = re.match('^[^v]+v=(.{11}).*', meta['trailer_url']).group(1)
-            # infoLabels['trailer'] = "plugin://plugin.video.youtube/?action=play_video&videoid=%s" % trailer_id
-            # url = 'plugin://plugin.video.youtube/play/?video_id=%s' % video_id
-            # print url
-            # xbmc.executebuiltin("xbmc.PlayMedia("+url+")")
-        '''
-        h.add_dir(addon_handle, base_url, 'Youtube link - Not implemented yet', '', 'not_implemented')
+            url = 'plugin://plugin.video.youtube/play/?video_id=%s' % video_id
+            print url
+            h.add_dir_video(addon_handle, name, url, '', '')
 
 
 def not_implemented():
